@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=criterion\ grade\ comment
+comment0.target=CommentedCriterionMark(Criterion,\ float,\ java.lang.String)
+comment1.params=
+comment1.target=void\ getMark()
+comment2.params=
+comment2.target=java.lang.String\ formattedMark()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

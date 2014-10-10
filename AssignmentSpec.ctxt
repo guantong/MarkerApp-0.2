@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=unit\ name
+comment0.target=AssignmentSpec(java.lang.String,\ java.lang.String)
+comment1.params=assignment_fname
+comment1.target=AssignmentSpec(java.lang.String)
+comment2.params=c
+comment2.target=void\ addCriterion(Criterion)
+comment3.params=name
+comment3.target=Criterion\ getCriterion(java.lang.String)
+comment4.params=
+comment4.target=java.util.ArrayList\ getCriteria()
+comment5.params=
+comment5.target=void\ printName()
+comment6.params=
+comment6.target=java.lang.String\ getUnit()
+comment7.params=
+comment7.target=java.lang.String\ getName()
+comment8.params=assignment_fname
+comment8.target=void\ parse(java.lang.String)
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+numComments=10
