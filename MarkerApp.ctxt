@@ -6,7 +6,6 @@ comment1.params=
 comment1.target=boolean\ quitFn()
 comment10.params=arguments
 comment10.target=boolean\ withheld(java.lang.String[])
-<<<<<<< HEAD
 comment11.params=arguments
 comment11.target=boolean\ createUnit(java.lang.String[])
 comment12.params=arguments
@@ -15,12 +14,6 @@ comment13.params=
 comment13.target=java.lang.String\ validRole()
 comment14.params=args
 comment14.target=void\ main(java.lang.String[])
-=======
-comment11.params=
-comment11.target=java.lang.String\ validRole()
-comment12.params=args
-comment12.target=void\ main(java.lang.String[])
->>>>>>> origin/master
 comment2.params=arguments
 comment2.target=boolean\ createFn(java.lang.String[])
 comment3.params=arguments
@@ -37,8 +30,4 @@ comment8.params=
 comment8.target=boolean\ login()
 comment9.params=
 comment9.target=boolean\ logout()
-<<<<<<< HEAD
 numComments=15
-=======
-numComments=13
->>>>>>> origin/master
