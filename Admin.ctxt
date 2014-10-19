@@ -1,7 +1,6 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Admin()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Lecturer\r\n
 comment1.params=lecturerid\ unitcode\ noUnit
 comment1.target=Admin(java.lang.String,\ java.lang.String,\ java.lang.String)
 comment10.params=y
@@ -22,4 +21,5 @@ comment8.params=unitFileName
 comment8.target=void\ readFile(java.lang.String)
 comment9.params=
 comment9.target=boolean\ assignLecturer()
+comment9.text=\ admin\ function\ which\ assign\ a\ lecturer\ to\ a\ unit\r\n\ \ rules\:\ 1.\ no\ duplicated\ assignment\ can\ be\ performed\r\n\ \ \ \ \ \ \ \ \ 2.\ increament\ the\ number\ of\ units\ that\ a\ lecturer\ teaches\r\n\ \ \ \ \ \ \ \ \ 3.\ no\ assignment\ allowed\ after\ max\ number\ of\ units\ teaches\r\n
 numComments=11

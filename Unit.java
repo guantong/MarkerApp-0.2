@@ -76,6 +76,7 @@ public class Unit
         }
     }
 
+    //create unit function
     public boolean createUnit(){
         String dir = System.getProperty("user.dir");
         String unitFileName = dir + "/unitlist1.txt";
@@ -90,6 +91,7 @@ public class Unit
             String unitNamei = inputs[1];
             boolean found = false;
 
+            //checking for duplicts in file
             for (Unit unit : units){
                 if (unit.getUnitCode().equalsIgnoreCase(inputs[0])
                 || unit.getUnitName().equalsIgnoreCase(inputs[1])){
@@ -99,6 +101,7 @@ public class Unit
                 }
             }
 
+            //add new unit to file
             if (found == false){
                 Unit uniti = new Unit(unitCodei, unitNamei);
                 units.add(uniti);

@@ -12,3 +12,4 @@ fit0011,0011
 fit0099,0099
 fit2000,abc
 fit2332,hgo
+fit1004,programming intro

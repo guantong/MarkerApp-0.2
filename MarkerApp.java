@@ -166,6 +166,7 @@ public class MarkerApp {
         return false;
     }
 
+    //login function
     private boolean login(){
         String inputLine = "";
         String dir = System.getProperty("user.dir");
@@ -252,11 +253,11 @@ public class MarkerApp {
         return false;
     }
 
+    //log out function
     private boolean logout(){
         System.out.println("Logged off");
         String[] args = {};
         MarkerApp.main(args);
-        //fixed enter command
         return true;
     }
 
@@ -283,6 +284,7 @@ public class MarkerApp {
         return false;
     }
 
+    // create unit function caller
     private boolean createUnit(String arguments[]){
         unit = new Unit();
 
@@ -298,6 +300,7 @@ public class MarkerApp {
         return false;
     }
 
+    // assign lecturer to unit caller
     private boolean assignLecturer(String arguments[]){
         Admin admin = new Admin();
 
@@ -313,6 +316,7 @@ public class MarkerApp {
         return false;
     }
 
+    //return user's role when a action is about to preformed
     private String validRole(){
         return user.getRole();
     }

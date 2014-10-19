@@ -15,13 +15,12 @@ public class Admin
     private static int maxNoUnit = 3;
     private ArrayList<Admin> ls;
 
-    /**
-     * Constructor for objects of class Lecturer
-     */
+    // default constructor
     public Admin(){
 
     }
 
+    //custome constructor
     public Admin(String lecturerid, String unitcode, String noUnit){
         this.lecturerid = lecturerid;
         this.unitcode = unitcode;
@@ -52,6 +51,7 @@ public class Admin
         this.unitcode = unitcode;
     }
     
+    // read admin object from text file to arraylist
     public void readFile(String unitFileName){
         try {
             BufferedReader reader = new BufferedReader(new FileReader(unitFileName));
@@ -69,12 +69,15 @@ public class Admin
         }
     }
     
+    /** admin function which assign a lecturer to a unit
+     *  rules: 1. no duplicated assignment can be performed
+     *         2. increament the number of units that a lecturer teaches
+     *         3. no assignment allowed after max number of units teaches
+     */
     public boolean assignLecturer(){
         String dir = System.getProperty("user.dir");
         String unitFileName = dir + "/assignlecturer.txt";
-
         ls = new ArrayList<Admin>();
-        
         readFile(unitFileName);
         
         try {
@@ -89,6 +92,7 @@ public class Admin
             String x = "";
             int noOfUnit = 0;
 
+            //no duplicated assignment can be performed
             for (Admin l : ls){
                 noOfUnit = Integer.parseInt(l.getNoUnit());
                 if (l.getLecturerid().equalsIgnoreCase(inputs[0])
@@ -103,6 +107,7 @@ public class Admin
                 noOfUnit = Integer.parseInt(l.getNoUnit());
                 if (l.getLecturerid().equalsIgnoreCase(inputs[0])
                 && !l.getUnitCode().equalsIgnoreCase(inputs[1])){
+                    //increament the number of units that a lecturer teaches
                     if (noOfUnit < maxNoUnit){                        
                         x = String.valueOf(noOfUnit+1);
                         currentNoOfUnit = noOfUnit+1;
@@ -110,6 +115,7 @@ public class Admin
                         found2 = true;
                         found = true;
                     }
+                    //no assignment allowed after max number of units teaches
                     if(noOfUnit == maxNoUnit)
                     {
                         System.out.println("Unable to assign lecturer to this unit, lecturer's max number of unit reached");
@@ -119,12 +125,15 @@ public class Admin
                 }
             }
             
+            //assign additional unit to a lecturer
             if (found2 == true){
                 if(currentNoOfUnit <= maxNoUnit){
+                    //add new assignment to arraylist
                     Admin li = new Admin(lidi, unitCodei, x);
                     ls.add(li);
                     System.out.println("Additional unit assign to lecturer");
                     PrintWriter outWriter = new PrintWriter(unitFileName);
+                    //print arraylist to file
                     try{
                         for(Admin l : ls){ 
                             outWriter.println(l.getLecturerid() + "," + l.getUnitCode() + "," + l.getNoUnit());
@@ -145,12 +154,13 @@ public class Admin
                 }
             }
 
+            //add new assignment for a lecturer
             if (found == false){
                 Admin li = new Admin(lidi, unitCodei, "1");
                 ls.add(li);
                 PrintWriter outWriter = new PrintWriter(unitFileName);
                 try{
-                    for(Admin l : ls){ 
+                    for(Admin l : ls){
                         outWriter.println(l.getLecturerid() + "," + l.getUnitCode() + "," + l.getNoUnit());
                     }
                 }
