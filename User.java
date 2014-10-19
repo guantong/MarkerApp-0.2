@@ -43,10 +43,6 @@ public class User
     }
 
     public static void main (String args[]) {
-//         String dir = System.getProperty("user.dir");
-//         String name = dir + "/user1.txt";
-// 
-//         User u = new User(name);
-
+        
     }
 }

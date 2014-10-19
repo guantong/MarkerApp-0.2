@@ -14,6 +14,8 @@ public class MarkerApp {
     // The assignment object to be shared in this class
     private Assignment assignment;
     private User user;
+    private Unit unit;
+    private Admin Admin;
 
     /**
      * This function iteratively performs user actions according to user commends.
@@ -22,8 +24,8 @@ public class MarkerApp {
      * input parameters.
      */
     private void UILoop() {
-
         String line = "";
+
         while (true) {
             // Show a message to a user
             System.out.println("Enter Command:");
@@ -76,6 +78,14 @@ public class MarkerApp {
                 case 'w':
                 //withheld student mark
                 withheld(arguments);  
+                break;
+                case 'u':
+                //create unit
+                createUnit(arguments);  
+                break;
+                case 'a':
+                //assign lecturer to unit
+                assignLecturer(arguments);  
                 break;
                 default:
                 System.err.println(command + " is not a valid command! Try again!");
@@ -157,14 +167,15 @@ public class MarkerApp {
     }
 
     private boolean login(){
-
         String inputLine = "";
         String dir = System.getProperty("user.dir");
-        String name = dir + "/user1.txt";
+        String userFileName = dir + "/user1.txt";
+        String passwordFileName = dir + "/passwordlist1.txt";
         ArrayList<User> users = new ArrayList<User>();
+        ArrayList<PasswordReset> passwordResetList = new ArrayList<PasswordReset>();
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(name));
+            BufferedReader reader = new BufferedReader(new FileReader(userFileName));
             String line = "";
             while ((line = reader.readLine()) != null) {
                 String fields[] = line.split(",");
@@ -178,17 +189,26 @@ public class MarkerApp {
         }
 
         boolean loginOK = false;
+        String password = "";
+        String userId = "";
 
         while (loginOK == false){
-            System.out.println("Enter User Id and password:");
-            inputLine = new Scanner(System.in).nextLine();
+            try{
+                System.out.println("Enter User Id and password:");
+                inputLine = new Scanner(System.in).nextLine();
 
-            if (inputLine.equalsIgnoreCase("")) {
-                continue;}
+                if (inputLine.equalsIgnoreCase("")) {
+                    continue;}
 
-            String inputList[] = inputLine.split(" ");
-            String userId = inputList[0];
-            String password = inputList[1];
+                String inputList[] = inputLine.split(" ");
+                userId = inputList[0];
+                password = inputList[1];
+            }
+            catch (Exception ioEx)
+            {
+                System.out.println("input error, try again");
+                continue;
+            }
 
             for (User user: users){
                 if (user.getUserId().equals(userId)
@@ -199,7 +219,35 @@ public class MarkerApp {
                     return true;
                 }
             }
-            System.out.println("UserId or password incorrect, try again!");
+
+            System.out.println("Did you forget your password and would like to retrieve it? (Enter y to retrieve or enter any key to login again)");
+            String resetPassword = new Scanner(System.in).nextLine();
+            if (resetPassword.equalsIgnoreCase("yes") || resetPassword.equalsIgnoreCase("y")){
+                System.out.println("What is your secret word?");
+                String secretWord = new Scanner(System.in).nextLine();
+                try {
+                    BufferedReader reader = new BufferedReader(new FileReader(passwordFileName));
+                    String line = "";
+                    while ((line = reader.readLine()) != null) {
+                        String fields[] = line.split(",");
+
+                        PasswordReset passwordReset = new PasswordReset (fields[0], fields[1]);
+                        passwordResetList.add(passwordReset);
+                    }
+                    reader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                for (PasswordReset passwordReset : passwordResetList){
+                    if (passwordReset.getSecretWord().equalsIgnoreCase(secretWord)){
+                        System.out.println("this is your password: " + passwordReset.getPassword());
+                        System.out.println("Try again with your retrieve password");
+                        break;
+                    }
+                }
+            }
+            else
+                System.out.println("UserId or password incorrect, try again!");
         }
         return false;
     }
@@ -234,17 +282,46 @@ public class MarkerApp {
         }
         return false;
     }
-    
+
+    private boolean createUnit(String arguments[]){
+        unit = new Unit();
+
+        if (validRole().equals("Admin")){
+            if(unit.createUnit()==true)
+                return true;
+            else
+                return false;
+        }
+        else{
+            System.out.println("Please login as Admin!");
+        }
+        return false;
+    }
+
+    private boolean assignLecturer(String arguments[]){
+        Admin admin = new Admin();
+
+        if (validRole().equals("Admin")){
+            if(admin.assignLecturer()==true)
+                return true;
+            else
+                return false;
+        }
+        else{
+            System.out.println("Please login as Admin!");
+        }
+        return false;
+    }
+
     private String validRole(){
         return user.getRole();
     }
-    
+
     public static void main(String args[]) {
         MarkerApp markerApp = new MarkerApp();
-        
+
         if (markerApp.login() == true){
             markerApp.UILoop();
         }
-
     }
 }

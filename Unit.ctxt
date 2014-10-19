@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Unit()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Unit\r\n
+comment1.params=unitcode\ unitname
+comment1.target=Unit(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getUnitCode()
+comment3.params=unitCode
+comment3.target=void\ setUnitCode(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getUnitName()
+comment5.params=unitName
+comment5.target=void\ setUnitName(java.lang.String)
+comment6.params=
+comment6.target=void\ printUnitList()
+comment7.params=unitFileName
+comment7.target=void\ readFile(java.lang.String)
+comment8.params=
+comment8.target=boolean\ createUnit()
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+numComments=10

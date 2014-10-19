@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Admin()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Lecturer\r\n
+comment1.params=lecturerid\ unitcode\ noUnit
+comment1.target=Admin(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment10.params=y
+comment10.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=java.lang.String\ getNoUnit()
+comment3.params=noUnit
+comment3.target=void\ setNoUnit(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getLecturerid()
+comment5.params=lecturerid
+comment5.target=void\ setLecturerid(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getUnitCode()
+comment7.params=unitcode
+comment7.target=void\ setUnitCode(java.lang.String)
+comment8.params=unitFileName
+comment8.target=void\ readFile(java.lang.String)
+comment9.params=
+comment9.target=boolean\ assignLecturer()
+numComments=11
