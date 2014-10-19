@@ -191,7 +191,11 @@ public class MarkerApp {
         boolean loginOK = false;
         String password = "";
         String userId = "";
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin/master
         while (loginOK == false){
             try{
                 System.out.println("Enter User Id and password:");
@@ -220,7 +224,11 @@ public class MarkerApp {
                 }
             }
 
+<<<<<<< HEAD
             System.out.println("Did you forget your password and would like to retrieve it? (Enter y to retrieve or enter any key to login again)");
+=======
+            System.out.println("do you forgot your password and retrieve it?");
+>>>>>>> origin/master
             String resetPassword = new Scanner(System.in).nextLine();
             if (resetPassword.equalsIgnoreCase("yes") || resetPassword.equalsIgnoreCase("y")){
                 System.out.println("What is your secret word?");
@@ -283,6 +291,7 @@ public class MarkerApp {
         return false;
     }
 
+<<<<<<< HEAD
     private boolean createUnit(String arguments[]){
         unit = new Unit();
 
@@ -313,6 +322,8 @@ public class MarkerApp {
         return false;
     }
 
+=======
+>>>>>>> origin/master
     private String validRole(){
         return user.getRole();
     }
